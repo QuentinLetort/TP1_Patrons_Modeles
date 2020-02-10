@@ -1,5 +1,7 @@
 using System.Collections.Concurrent;
 using System.Threading;
+using System.Collections.Generic;
+using DataFlow;
 
 namespace JobSystem
 {
@@ -8,6 +10,7 @@ namespace JobSystem
         private Thread[] threads;
         private ConcurrentQueue<Command> commandQueue;
         private bool shutdown;
+        private List<ITaskListener> _listeners = new List<ITaskListener>();
 
         public CommandExecutor(int nbThread)
         {
@@ -26,6 +29,7 @@ namespace JobSystem
                 if (!commandQueue.IsEmpty && commandQueue.TryDequeue(out Command task))
                 {
                     task.Execute();
+                    Notify(task);
                 }
             }
         }
@@ -41,6 +45,24 @@ namespace JobSystem
         public void AddTask(Command task)
         {
             commandQueue.Enqueue(task);
+        }
+
+        public void Subscribe(ITaskListener taskListener)
+        {
+            _listeners.Add(taskListener);
+        }
+
+        public void Unsubscribe(ITaskListener taskListener)
+        {
+            _listeners.Remove(taskListener);
+        }
+
+        public void Notify(Command command)
+        {
+            foreach (ITaskListener taskListener in _listeners)
+            {
+                taskListener.OnTaskDone(command);
+            }
         }
     }
 }
