@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Api",
+    "\\bin",
+    "\\bin\\Debug",
+    "\\bin\\Debug\\netcoreapp3.1",
+    "\\bin\\Release",
+    "\\bin\\Release\\netcoreapp3.1",
+    "\\DataFlow",
+    "\\JobSystem"
+  ],
+  "SelectedNode": "\\DataFlow\\DataFlowDecorator.cs",
+  "PreviewInSolutionExplorer": false
+}
