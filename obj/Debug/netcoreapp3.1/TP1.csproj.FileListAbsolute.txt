@@ -1,0 +1,11 @@
+/home/quentinletort/Documents/Cours/Annee5_S2/patrons_modeles/TP1/bin/Debug/netcoreapp3.1/TP1
+/home/quentinletort/Documents/Cours/Annee5_S2/patrons_modeles/TP1/bin/Debug/netcoreapp3.1/TP1.deps.json
+/home/quentinletort/Documents/Cours/Annee5_S2/patrons_modeles/TP1/bin/Debug/netcoreapp3.1/TP1.runtimeconfig.json
+/home/quentinletort/Documents/Cours/Annee5_S2/patrons_modeles/TP1/bin/Debug/netcoreapp3.1/TP1.runtimeconfig.dev.json
+/home/quentinletort/Documents/Cours/Annee5_S2/patrons_modeles/TP1/bin/Debug/netcoreapp3.1/TP1.dll
+/home/quentinletort/Documents/Cours/Annee5_S2/patrons_modeles/TP1/bin/Debug/netcoreapp3.1/TP1.pdb
+/home/quentinletort/Documents/Cours/Annee5_S2/patrons_modeles/TP1/obj/Debug/netcoreapp3.1/TP1.csprojAssemblyReference.cache
+/home/quentinletort/Documents/Cours/Annee5_S2/patrons_modeles/TP1/obj/Debug/netcoreapp3.1/TP1.AssemblyInfoInputs.cache
+/home/quentinletort/Documents/Cours/Annee5_S2/patrons_modeles/TP1/obj/Debug/netcoreapp3.1/TP1.AssemblyInfo.cs
+/home/quentinletort/Documents/Cours/Annee5_S2/patrons_modeles/TP1/obj/Debug/netcoreapp3.1/TP1.dll
+/home/quentinletort/Documents/Cours/Annee5_S2/patrons_modeles/TP1/obj/Debug/netcoreapp3.1/TP1.pdb

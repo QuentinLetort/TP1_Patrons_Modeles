@@ -1,30 +1,29 @@
-using System;
 using System.Collections.Concurrent;
 using System.Threading;
 
-namespace JobSystem 
+namespace JobSystem
 {
     public class CommandExecutor
     {
-        private Thread [] threads;
+        private Thread[] threads;
         private ConcurrentQueue<Command> commandQueue;
         private bool shutdown;
-        
-        public CommandExecutor(int nbThread) 
+
+        public CommandExecutor(int nbThread)
         {
             commandQueue = new ConcurrentQueue<Command>();
             threads = new Thread[nbThread];
-            for(int i = 0; i<nbThread;i++) 
+            for (int i = 0; i < nbThread; i++)
             {
                 threads[i] = new Thread(Work);
             }
             shutdown = false;
         }
-        private void Work() 
+        private void Work()
         {
-            while(!shutdown) 
+            while (!shutdown)
             {
-                if(!commandQueue.IsEmpty && commandQueue.TryDequeue(out Command task))
+                if (!commandQueue.IsEmpty && commandQueue.TryDequeue(out Command task))
                 {
                     task.Execute();
                 }
@@ -33,7 +32,7 @@ namespace JobSystem
         public void Shutdown()
         {
             shutdown = true;
-            foreach(Thread thread in threads)
+            foreach (Thread thread in threads)
             {
                 thread.Join();
             }
