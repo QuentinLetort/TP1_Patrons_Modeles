@@ -1,7 +1,7 @@
 ﻿using DataFlow;
 using JobSystem;
 
-namespace Api
+namespace API
 {
     public class Api
     {
@@ -12,7 +12,7 @@ namespace Api
         public Api()
         {
             nbThread = 1;
-            commandExecutor = null;
+            commandExecutor = CommandExecutor.getInstance();
         }
         public int NbThread
         {
@@ -26,15 +26,15 @@ namespace Api
         }
         public void Send(string data) 
         {
-            commandExecutor.AddTask(null);
+            commandExecutor.AddTask(new WriteDataCommand(flow, data));
         }
 
-        /*public void CreateConnection()
+        public void CreateConnection()
         {
-            commandExecutor.
+            commandExecutor.Start(nbThread);
         }
 
-        public chooseListener()
+        /*public chooseListener()
         {
             if (listener == true)
             {
@@ -44,11 +44,11 @@ namespace Api
             {
                 CommandExecutor.Unsubscribe();
             }
-        }
-
-        public CloseConnection()
-        {
-            CommandExecutor.Shutdown();
         }*/
+
+        public void CloseConnection()
+        {
+            commandExecutor.Shutdown();
+        }
     }
 }

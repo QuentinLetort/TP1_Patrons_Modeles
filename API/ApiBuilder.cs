@@ -1,5 +1,5 @@
 using DataFlow;
-namespace Api
+namespace API
 {
     public class ApiBuilder
     {
@@ -32,7 +32,7 @@ namespace Api
         {
             Api temp = this.api;
             Reset();
-            return api;
+            return temp;
         }
     }
 }

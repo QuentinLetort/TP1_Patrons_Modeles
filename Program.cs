@@ -1,5 +1,7 @@
 ﻿using System;
 using DataFlow;
+using JobSystem;
+using API;
 
 namespace TP1
 {
@@ -7,13 +9,21 @@ namespace TP1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            IDataFlow fl = new ConsoleFlow();
-            fl.WriteData("test");
-            fl = new CompressionDecorator(fl);
-            fl.WriteData("test");
-            fl = new EncryptionDecorator(fl);
-            fl.WriteData("test");            
+            ApiBuilder builder = new ApiBuilder();
+            builder.SetConsoleProtocol();
+            builder.SetCompression();
+            builder.SetNbThread(10);
+
+            Api api = builder.GetResult();
+            api.CreateConnection();
+            for (int i = 0; i < 20; i++)
+            {
+                api.Send("data" + i);
+            }
+            System.Threading.Thread.Sleep(5000);
+            api.CloseConnection();
+
+            
         }
     }
 }
