@@ -1,6 +1,6 @@
 namespace DataFlow
 {
-    public class DataFlowDecorator : IDataFlow
+    public abstract class DataFlowDecorator : IDataFlow
     {
         public IDataFlow wrappee;
         public DataFlowDecorator(IDataFlow flow)

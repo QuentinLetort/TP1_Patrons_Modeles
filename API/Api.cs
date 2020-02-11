@@ -28,7 +28,7 @@ namespace API
         {
             commandExecutor.AddTask(new WriteDataCommand(flow, data));
         }
-
+        
         public void CreateConnection()
         {
             commandExecutor.Start(nbThread);

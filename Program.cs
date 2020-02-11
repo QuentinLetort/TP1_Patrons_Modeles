@@ -21,9 +21,7 @@ namespace TP1
                 api.Send("data" + i);
             }
             System.Threading.Thread.Sleep(5000);
-            api.CloseConnection();
-
-            
+            api.CloseConnection();            
         }
     }
 }
