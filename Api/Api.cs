@@ -1,29 +1,42 @@
-﻿using System;
+﻿using DataFlow;
+using JobSystem;
 
 namespace Api
 {
     public class Api
     {
-        private IDataFlow fluxMessage;
+        private IDataFlow flow;
         private int nbThread;
-        private bool listener;
+        private CommandExecutor commandExecutor;
 
-
-        public Api(IDataFlow flux, int nbThread, bool listener)
+        public Api()
         {
-            fluxMessage = flux;
-            nbThread = nbThread;
-            listener = listener;
+            nbThread = 1;
+            commandExecutor = null;
+        }
+        public int NbThread
+        {
+            get { return this.nbThread; }
+            set { nbThread = value; }
+        }
+        public IDataFlow Flow
+        {
+            get { return this.flow; }
+            set { flow = value; }
+        }
+        public void Send(string data) 
+        {
+            commandExecutor.AddTask(null);
         }
 
-        public CreateConnection()
+        /*public void CreateConnection()
         {
-            CommandExecutor.CommandExecutor(nbThread);
+            commandExecutor.
         }
 
         public chooseListener()
         {
-            if(listener == true)
+            if (listener == true)
             {
                 CommandExecutor.Subscribe();
             }
@@ -36,6 +49,6 @@ namespace Api
         public CloseConnection()
         {
             CommandExecutor.Shutdown();
-        }
+        }*/
     }
 }
